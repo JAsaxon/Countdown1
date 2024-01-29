@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+$white: rgb(255, 255, 255);
+$off-white-top: rgb(235, 235, 235);
+$background: hsl(235, 16%, 14%);
+$clear-blue: hsl(237, 18%, 59%);
+$blue: hsl(236, 21%, 26%);
+$blue-2: hsl(234, 22%, 18%);
+
+$dark-blue: hsl(234, 17%, 12%);
+
+$red: hsl(345, 95%, 68%);
+$width: 1.82em;
+body {
+  background-color: $background;
+  overflow: hidden;
+  margin: 0;
+  font-family: 'Red Hat Text', sans-serif;
+}
+.stars{
+    position: absolute;
+    width: 2000px;
+    height: 1000px;
+}
+.hills{
+    position: absolute;
+    bottom: 0;
+    min-width: 1300px;
+    width: 100vw;
+    margin-bottom: 0px;
+}
+.logos{
+    position: absolute;
+    bottom: 2em;
+    left: 40%;
+    *{
+        cursor: pointer;
+        transition: 1000ms;
+        margin: 1em;
+        scale: 1.2;
+
+    }
+    img:hover{
+        scale: 1.7;
+
+    }
+}
+h1{
+    color: white;
+    text-align: center;
+    margin-top: 3em;
+    font-size: 3em;
+
+}
+p{
+    color: $clear-blue;
+    text-align: center;
+    opacity: 0.8;
+}
+.countdown{
+    display: flex;
+    justify-content: center;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+}
+.flip-card  {
+  font-size: 3em;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 5.5em;
+  font-weight: 500;
+  margin: 0.25em 0.1em;
+  color: $red;
+}
+.bottom,
+.top,
+ .flip-card.flip::before,
+ .flip-card.flip::after{
+  display: flex;
+  width: fit-content;
+  padding: 0.25em;
+  height: 0.75em;
+  line-height: 1em;
+  font-size: 1.3em;
+}
+.bottom {
+  display: flex;
+  background-color: $blue;
+  align-items: flex-end;
+  border-radius: 0 0 0.1em 0.1em;
+
+  width: $width;
+
+  text-align: center;
+
+}
+.top {
+  text-align: center;
+
+  width: $width;
+
+  border-radius: 0.1em 0.1em 0em 0em;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.11);
+  background-color: $blue-2;
+}
+.top::after{
+    content: "";
+    width: 10px;
+    height: 20px;
+    border-radius: 0% 100% 100% 0% / 50% 52% 48% 50% ;
+    background-color:$dark-blue;
+    top: 0.75em;
+    translate:  0 -50%;
+    position:absolute;
+    left: 0;
+    z-index: 2;
+}
+.top::before{
+    content: "";
+    width: 10px;
+    height: 20px;
+    border-radius: 0% 100% 100% 0% / 50% 52% 48% 50% ;
+    background-color:$dark-blue;
+    top: 0.75em;
+    right: 0;
+    rotate: 180deg;
+    translate:  0 -50%;
+    position:absolute;
+    z-index: 2;
+}
+.flip-card.flip::before{
+    text-align: center;
+
+    width: $width;
+
+    position: absolute;
+    background-color: $blue-2;
+    overflow: hidden;
+    animation: flip-down 160ms ease-in 0s;
+    content: attr(datanumber);
+    transform-origin: bottom;
+}
+.flip-card.flip::after{
+    text-align: center;
+
+    width: $width;
+    align-items: flex-end;
+    position: absolute;
+    background-color: $blue;
+    transform: rotateX(90deg);
+    animation: flip-down-2 160ms ease-in 160ms;
+    height: 50%;
+    bottom: 0;
+    overflow: hidden;
+    content: attr(datanumber);
+    transform-origin: top;
+
+}
+@keyframes flip-down {
+    100%{
+        transform: rotateX(90deg);
+    }
+}
+@keyframes flip-down-2 {
+    100%{
+        transform: rotateX(0deg);
+    }
+}
